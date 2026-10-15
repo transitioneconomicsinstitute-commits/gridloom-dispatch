@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "gridloom-dispatch"
+version = "0.1.0"
+description = "Basic hourly nodal production cost model solved with HiGHS"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Transition Economics Institute"}]
+requires-python = ">=3.9"
+dependencies = ["numpy", "pandas", "scipy", "highspy>=1.5"]
+[project.optional-dependencies]
+test = ["pytest"]
+[project.scripts]
+gridloom-dispatch = "gridloom_dispatch.__main__:main"
+[tool.setuptools]
+packages = ["gridloom_dispatch"]

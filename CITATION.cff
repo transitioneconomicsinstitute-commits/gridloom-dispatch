@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Gridloom Dispatch: basic hourly nodal production cost model"
+type: software
+authors:
+  - name: "Transition Economics Institute"
+version: 0.1.0
+date-released: 2026-10-15
+license: MIT
+keywords: [power systems, production cost model, nodal prices, linear programming, HiGHS]
