@@ -39,7 +39,7 @@ A case is a folder of CSV files:
 
 | File | Columns |
 |---|---|
-| `case.json` | `base_year`, `discount_rate`, `voll_usd_mwh`, `ref_node`, optional `line_loss_frac`, `flow_cost_usd_mwh` |
+| `case.json` | `base_year`, `discount_rate`, `voll_usd_mwh`, `ref_node`, `demand_growth` (annual fraction applied to `peak_MW` from `base_year`, default 0), optional `line_loss_frac`, `flow_cost_usd_mwh` |
 | `nodes.csv` | `node`, `name`, `peak_MW` |
 | `profiles.csv` | 8760 rows: `load` and any wind or solar capacity-factor columns |
 | `generators.csv` | `name`, `node`, `type` (`thermal`, `solar`, `wind`), `mw`, `heat_rate`, `fuel_usd_mmbtu`, `vom`, `profile` (for solar/wind) |
