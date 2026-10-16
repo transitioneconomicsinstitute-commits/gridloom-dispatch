@@ -21,7 +21,7 @@ pd.DataFrame([dict(name='L12',**{'from':1,'to':2},MVA=250,x_pu=0.10,loss_pct=1.5
               dict(name='L34',**{'from':3,'to':4},MVA=150,x_pu=0.12,loss_pct=2.0),
               dict(name='L14',**{'from':1,'to':4},MVA=100,x_pu=0.15,loss_pct=2.0)]).to_csv(f'{O}/branches.csv',index=False)
 json.dump(dict(description='SYNTHETIC 4-node test system. Invented numbers; not a real power system.',
-               base_year=2026,discount_rate=0.08,voll_usd_mwh=1500,ref_node=3),
+               base_year=2026,discount_rate=0.08,voll_usd_mwh=1500,ref_node=3,demand_growth=0.04),
           open(f'{O}/case.json','w'),indent=1)
 open(f'{O}/README.md','w').write('# Synthetic 4-node example\n\nSYNTHETIC DATA. Every number in this folder was invented by `scripts/make_synthetic_case.py` (random seed 42) for testing and illustration. It does not describe any real power system.\n')
 print('wrote',O)

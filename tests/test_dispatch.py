@@ -23,3 +23,10 @@ def test_merit_order(case):
 def test_case_files_are_synthetic():
     import json
     assert 'SYNTHETIC' in json.load(open(os.path.join(CASE,'case.json')))['description']
+
+def test_demand_growth(case):
+    g=case.cfg['demand_growth']; assert g>0
+    np.testing.assert_allclose(case.peaks(case.cfg['base_year']),case.nodes.peak_MW.values)
+    np.testing.assert_allclose(case.peaks(2030),case.nodes.peak_MW.values*(1+g)**4)
+    h=np.arange(24)
+    np.testing.assert_allclose(case.load(2028,h),case.load(2026,h)*(1+g)**2)

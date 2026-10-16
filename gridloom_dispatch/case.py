@@ -7,7 +7,7 @@ def num(v,d=0.):
     return d if v!=v else v
 
 CAL=pd.date_range('2001-01-01',periods=8760,freq='h')  # non-leap reference calendar
-DEFAULTS=dict(base_year=2026,discount_rate=0.08,voll_usd_mwh=1500.,ref_node=None,
+DEFAULTS=dict(base_year=2026,discount_rate=0.08,voll_usd_mwh=1500.,ref_node=None,demand_growth=0.0,
               line_loss_frac=0.015,flow_cost_usd_mwh=0.01)
 
 class Case:
@@ -24,10 +24,14 @@ class Case:
         s.profiles=r('profiles.csv')
         assert len(s.profiles)==8760, 'profiles.csv must have 8760 rows'
         if s.cfg['ref_node'] is None: s.cfg['ref_node']=int(s.nodes.node.iloc[0])
+    def peaks(s,year):
+        """Node peak demand in MW for `year`, grown at `demand_growth` per year from `base_year`."""
+        g=s.cfg['demand_growth']
+        return s.nodes.peak_MW.values*(1+g)**(year-s.cfg['base_year'])
     def load(s,year,hours):
-        """node x hour demand in MW (no demand growth in the core)."""
+        """node x hour demand in MW"""
         sh=np.tile(s.profiles['load'].values[hours],(len(s.nodes),1))
-        return s.nodes.peak_MW.values[:,None]*sh
+        return s.peaks(year)[:,None]*sh
 
 def crf(r,n):
     return r*(1+r)**n/((1+r)**n-1)
