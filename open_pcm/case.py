@@ -34,4 +34,8 @@ class Case:
         return s.peaks(year)[:,None]*sh
 
 def crf(r,n):
+    """Capital recovery factor for rate r over n years; crf(0, n) = 1/n."""
+    if n<=0: raise ValueError("n must be positive")
+    if r<=-1: raise ValueError("r must be greater than -1")
+    if r==0: return 1.0/n
     return r*(1+r)**n/((1+r)**n-1)
