@@ -12,6 +12,8 @@ pip install -e .[test]
 
 Requires Python 3.9 or later, numpy, pandas, scipy and highspy.
 
+For large cases, HiGHS's parallel interior-point solver HiPO needs `pip install highspy-extras` (or `pip install open-pcm[hipo]`); pass `method='hipo'` to `LP.solve`, optionally with `tol=1e-6` and `threads=N`. Interior-point solves run without crossover. HiPO currently runs on x86-64; on some ARM servers the extras build stops with an illegal-instruction error, so use `method='ipm'` there.
+
 ## Quick start
 
 ```

@@ -12,6 +12,7 @@ requires-python = ">=3.9"
 dependencies = ["numpy", "pandas", "scipy", "highspy>=1.5"]
 [project.optional-dependencies]
 test = ["pytest"]
+hipo = ["highspy-extras"]
 [project.scripts]
 open-pcm = "open_pcm.__main__:main"
 [tool.setuptools]
