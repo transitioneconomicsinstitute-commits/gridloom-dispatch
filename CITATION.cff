@@ -4,7 +4,7 @@ title: "OPEN-PCM: basic hourly nodal production cost model"
 type: software
 authors:
   - name: "Transition Economics Institute"
-version: 0.1.0
-date-released: 2026-10-15
+version: 0.2.0
+date-released: 2026-10-23
 license: MIT
 keywords: [power systems, production cost model, nodal prices, linear programming, HiGHS]
