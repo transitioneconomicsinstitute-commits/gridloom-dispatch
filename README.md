@@ -1,6 +1,6 @@
 # OPEN-PCM
 
-OPEN-PCM (formerly OPEN-PCM) is a small production cost model for power systems, written in Python. It solves hourly nodal dispatch with DC power flow, line losses, thermal plant fuel costs, and wind and solar profiles. Each solve is one sparse linear programme using the open-source HiGHS solver.
+OPEN-PCM is a small production cost model for power systems, written in Python. It solves hourly nodal dispatch with DC power flow, line losses, thermal plant fuel costs, and wind and solar profiles. Each solve is one sparse linear programme using the open-source HiGHS solver.
 
 This is the **v0.1.0** core: a contiguous block of hours in a single LP. Unit commitment, storage, hydro budgets, full-year windowed runs and expansion live in later releases.
 
@@ -54,7 +54,3 @@ python -m pytest -q
 ## Licence
 
 MIT. Copyright (c) 2026 Transition Economics Institute. See `LICENSE`. Please cite using `CITATION.cff`.
-
-## Name
-
-The project was renamed from OPEN-PCM to OPEN-PCM in October 2026. The Python package is still imported as `open_pcm` so existing code keeps working.
